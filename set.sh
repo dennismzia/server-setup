@@ -29,3 +29,5 @@ git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && s
 echo "installing puredns"
 go install github.com/d3mondev/puredns/v2@latest
 
+echo "installing gauplus"
+$ go install github.com/bp0lr/gauplus@latest
