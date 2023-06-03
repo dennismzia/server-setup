@@ -39,8 +39,9 @@ ctfr.py -d $DOMAIN -o $DIR/ctfr.txt
 echo "\n started enum on amass \n"
 amass enum --passive -d $DOMAIN -o $DIR/amas.txt
 
-echo "performing dns bruteforcing"
-nohup puredns bruteforce ~/wordlist/best-dns-wordlist.txt $DOMAIN -r ~/wordlist/resolvers.txt -w subrute.txt > sbr & 
+# below needs more tests
+# echo "performing dns bruteforcing"
+# nohup puredns bruteforce ~/wordlist/best-dns-wordlist.txt $DOMAIN -r ~/wordlist/resolvers.txt -w subrute.txt > sbr & 
 echo " "
 echo "------------------------------------------------------------------------------------"
 echo "done and dusted"
