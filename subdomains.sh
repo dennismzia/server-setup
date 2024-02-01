@@ -25,13 +25,13 @@ subfinder -all -silent -d $DOMAIN |sort -u|anew $DIR/subdomains.txt
 echo "started assetfinder"
 assetfinder -subs-only $DOMAIN |sort -u|anew $DIR/subdomains.txt
 
-echo "started githubsubdomains"
-github-subdomains -d example.com -t /opt/gh/tokens.txt -o $DIR/output.txt
+# echo "started githubsubdomains"
+# github-subdomains -d $DOMAIN-t /opt/gh/tokens.txt -o $DIR/output.txt
 
 echo "checking subs from wayback"
-waybackurls example.com |  unfurl -u domains | sort -u | anew $DIR/wayback.txt
+waybackurls $DOMAIN |  unfurl -u domains | sort -u | anew $DIR/wayback.txt
 echo "checking subs via gauplus"
-gauplus --threads 5 --subs example.com |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
+gauplus --threads 5 --subs $DOMAIN |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
 
 echo " started ctfr \n"
 ctfr.py -d $DOMAIN -o $DIR/ctfr.txt
