@@ -19,8 +19,7 @@ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' >> ~/.bashrc
 echo "installing subfinder"
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
-# echo "installing katana -----------------------------------------"
-# go install github.com/projectdiscovery/katana/cmd/katana@latest
+
 echo " "
 
 echo "installing naabu for portscanning----------------------------"
@@ -63,6 +62,9 @@ git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r
 
 echo "installing Altdns permutation generator"
 pip3 install py-altdns==1.0.2 --break-system-packages
+
+# echo "installing katana -----------------------------------------"
+# go install github.com/projectdiscovery/katana/cmd/katana@latest
 
 # echo "installing dnsx"
 # go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
