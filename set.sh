@@ -3,6 +3,12 @@ sudo apt update && sudo apt upgrade
 
 sudo apt install -y wget git curl htop apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
 
+echo "installing dns resolvers and moving them to the opt folder"
+wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
+
+echo "installing massdns"
+git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
+
 # installing go 
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
@@ -27,14 +33,11 @@ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 echo "installing ffuf"
 go install github.com/ffuf/ffuf/v2@latest
 
-echo "installing massdns"
-git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
+
 
 echo "installing puredns"
 go install github.com/d3mondev/puredns/v2@latest
 
-echo "installing dns resolvers and moving them to the opt folder"
-wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
 
 echo "installing gauplus"
 go install github.com/bp0lr/gauplus@latest
@@ -46,14 +49,24 @@ echo "installing mapcidr"
 go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 
 
-# echo "installing dnsx"
-# go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-
 echo "installing assetfinder"
 go install github.com/tomnomnom/assetfinder@latest
 
 echo "installing waybackurls"
 go install github.com/tomnomnom/waybackurls@latest
+
+echo "installing anew"
+go install -v github.com/tomnomnom/anew@latest
+
+echo "installing certificate enumeration tools"
+git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py
+
+echo "installing Altdns permutation generator"
+pip3 install py-altdns==1.0.2 --break-system-packages
+
+# echo "installing dnsx"
+# go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+
 
 # echo "installing"
 # go install github.com/gwen001/github-subdomains@latest
@@ -65,8 +78,6 @@ go install github.com/tomnomnom/waybackurls@latest
 # echo "installing unfurl"
 # go install github.com/tomnomnom/unfurl@latest
 
-echo "installing anew"
-go install -v github.com/tomnomnom/anew@latest
 
 # echo "installing crobat"
 # git clone https://github.com/Cgboal/SonarSearch.git && git cd SonarSearch && make && make install && cd
@@ -76,8 +87,3 @@ go install -v github.com/tomnomnom/anew@latest
 # git clone https://github.com/vortexau/dnsvalidator.git && cd dnsvalidator/ && pip install -r requirements.txt && sudo python3 setup.py install && cd 
 # && dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 100 -o resolvers.txt
 
-echo "installing certificate enumeration tools"
-git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt && sudo chmod +x ctfr.py
-
-echo "installing Altdns permutation generator"
-pip3 install py-altdns==1.0.2
