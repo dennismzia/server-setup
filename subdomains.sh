@@ -19,17 +19,17 @@ elif [[ $2 = "" ]]; then
     DOMAIN=$1
 fi
 
-echo "subdomain probe started on $DOMAIN relax will probably take a while "
+echo "subdomain probe started on $DOMAIN Relax and chill will probably take a while "
+echo ""
 echo "started subfinder"
 subfinder -all -silent -d $DOMAIN |sort -u|anew $DIR/subdomains.txt
+
 echo "started assetfinder"
 assetfinder -subs-only $DOMAIN |sort -u|anew $DIR/subdomains.txt
 
-# echo "started githubsubdomains"
-# github-subdomains -d $DOMAIN-t /opt/gh/tokens.txt -o $DIR/output.txt
-
 echo "checking subs from wayback"
 waybackurls $DOMAIN |  unfurl -u domains | sort -u | anew $DIR/wayback.txt
+
 echo "checking subs via gauplus"
 gauplus --threads 5 --subs $DOMAIN |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
 
@@ -39,16 +39,16 @@ ctfr.py -d $DOMAIN -o $DIR/ctfr.txt
 echo "\n started enum on amass \n"
 amass enum --passive -d $DOMAIN -o $DIR/amas.txt
 
-# below needs more tests
-# echo "performing dns bruteforcing"
-# nohup puredns bruteforce ~/wordlist/best-dns-wordlist.txt $DOMAIN -r ~/wordlist/resolvers.txt -w subrute.txt > sbr & 
 echo " "
 echo "------------------------------------------------------------------------------------"
-echo "done and dusted"
+echo "subdomain enum finito "
+echo ""
+echo "-------------------------------------------------------------------------------------"
+echo "Live subs checking and graphql Search initiated"
 
-# echo "subdomain discovery finished starting js file extraction process. might take a while :)"
-# cat $DIR/subdomains.txt| gauplus -b ttf,woff,svg,png,jpg  -random-agent |deduplicate|sort -u | grep \.js |anew $DIR/urls.txt
-# cat $DIR/subdomains.txt| waybackurls|deduplicate |sort -u| grep \.js |anew $DIR/urls.txt
-# echo " "
-# echo "extraction process done and saved in $DIR. now finding live js files"
-# cat $DIR/urls.txt | httpx --silent -mc 200 |anew $DIR/jsurls.txt
+# cat $DIR/*.txt | sort -u | httpx | anew live.txt && for i in $(cat live.txt); do echo [$i];graphwoof -d -t $i ; done >> grap2.txt
+
+cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayback.txt | sort -u |  httpx | anew live.txt && for i in $(cat live.txt); do echo [$i];graphwoof -d -t $i ; done >> grap2.txt
+
+
+
