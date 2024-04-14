@@ -21,7 +21,6 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 
 echo " "
-
 echo "installing naabu for portscanning----------------------------"
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 
@@ -63,12 +62,16 @@ git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r
 echo "installing Altdns permutation generator"
 pip3 install py-altdns==1.0.2 --break-system-packages
 
+echo "installing dnsx"
+go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+
+# TODO: - install graphwoof
+#       - install graphqlcop
+#       - shortscan url tool
+#       - install clairvoyance
+
 # echo "installing katana -----------------------------------------"
 # go install github.com/projectdiscovery/katana/cmd/katana@latest
-
-# echo "installing dnsx"
-# go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-
 
 # echo "installing"
 # go install github.com/gwen001/github-subdomains@latest
