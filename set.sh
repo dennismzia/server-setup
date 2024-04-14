@@ -1,20 +1,25 @@
 # installing all bounty tools on a server
 sudo apt update && sudo apt upgrade
-
+sleep 2
 sudo apt install -y wget git curl htop apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
+sleep 2
 
 echo "installing dns resolvers and moving them to the opt folder"
 wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
+sleep 2
 
 echo "installing massdns"
 git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
+sleep 2
 
 # installing go 
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+sleep 2
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' >> ~/.bashrc 
+sleep 2
 
 echo "installing subfinder"
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
