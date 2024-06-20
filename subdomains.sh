@@ -33,8 +33,8 @@ waybackurls $DOMAIN |  unfurl -u domains | sort -u | anew $DIR/wayback.txt
 echo "checking subs via gauplus"
 gauplus --threads 5 --subs $DOMAIN |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
 
-echo " started ctfr \n"
-ctfr.py -d $DOMAIN -o $DIR/ctfr.txt
+echo " started ctfr \n" 
+ctfr -d $DOMAIN -o $DIR/ctfr.txt
 
 echo "\n started enum on amass \n"
 amass enum --passive -d $DOMAIN -o $DIR/amas.txt
