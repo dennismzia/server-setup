@@ -69,14 +69,14 @@ echo "installing unfurl"
 go install github.com/tomnomnom/unfurl@latest
 
 echo "installing certificate enumeration tools"
-git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd
+git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt  && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd
 
 echo "Installing graphwoof file"
-git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt --break-system-packages && sudo chmod +x main.py | mv main.py graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd
+git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt  && sudo chmod +x main.py | mv main.py graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd
 
 
 echo "installing Altdns permutation generator"
-pip3 install py-altdns==1.0.2 --break-system-packages
+pip3 install py-altdns==1.0.2 # 
 
 
 
