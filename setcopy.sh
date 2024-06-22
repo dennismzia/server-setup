@@ -4,13 +4,13 @@ sleep 2
 sudo apt install -y wget git curl apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
 sleep 2
 
-echo "installing dns resolvers and moving them to the opt folder"
-wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
-sleep 2
+# echo "installing dns resolvers and moving them to the opt folder"
+# wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
+# sleep 2
 
-echo "installing massdns"
-git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
-sleep 2
+# echo "installing massdns"
+# git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
+# sleep 2
 
 # installing go 
 curl -OL https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
@@ -72,7 +72,7 @@ echo "installing certificate enumeration tools"
 git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt  && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd
 
 echo "Installing graphwoof file"
-git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt  && sudo chmod +x main.py | mv main.py graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd
+git clone https://github.com/dolevf/graphw00f.git && cd tools/graphw00f/ &&  pip3 install -r requirements.txt  && sudo chmod +x main.py | mv main.py graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd
 
 
 echo "installing Altdns permutation generator"
