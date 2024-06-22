@@ -52,7 +52,6 @@ go install -v github.com/owasp-amass/amass/v3/...@master
 echo "installing mapcidr"
 go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 
-
 echo "installing assetfinder"
 go install github.com/tomnomnom/assetfinder@latest
 
@@ -69,10 +68,12 @@ echo "installing unfurl"
 go install github.com/tomnomnom/unfurl@latest
 
 echo "installing certificate enumeration tools"
-git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd
+git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd ..  && ls -l /usr/local/bin/ctfr
+
 
 echo "Installing graphwoof file"
-git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt --break-system-packages && sudo chmod +x main.py | mv main.py graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd
+git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt --break-system-packages && mv main.py graphwoof.py ;chmod +x graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/ctfr
+
 
 
 echo "installing Altdns permutation generator"
@@ -80,8 +81,8 @@ pip3 install py-altdns==1.0.2 --break-system-packages
 
 
 
-# TODO: - install graphwoof
-#       - install graphqlcop
+# TODO: - install graphwoof : DONE
+#       - install graphqlcop : DONE?
 #       - shortscan url tool
 #       - install clairvoyance
 
