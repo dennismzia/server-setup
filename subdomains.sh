@@ -2,8 +2,8 @@
 
 # d=$(date +"%m-%d-%Y")
 # DIR=$HOME/Documents/engagements/$1
-DIR=$HOME/engagements/$1
 DOMAIN=$1
+DIR=$HOME/engagements/$1
 
 if [  ! -d "$DIR" ]; then
     mkdir -p $DIR
