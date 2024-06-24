@@ -31,7 +31,7 @@ echo "checking subs from wayback"
 waybackurls $DOMAIN |  unfurl -u domains | sort -u | anew $DIR/wayback.txt
 
 echo "checking subs via gauplus"
-gauplus --threads 5 --subs $DOMAIN |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
+gauplus -t 5 --subs $DOMAIN |  unfurl -u domains | sort -u |anew $DIR/wayback2.txt
 
 echo " started ctfr \n" 
 ctfr -d $DOMAIN -o $DIR/ctfr.txt
