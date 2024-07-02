@@ -5,8 +5,11 @@ sudo apt install -y wget git curl apache2 net-tools make build-essential python3
 sleep 2
 
 echo "installing dns resolvers and moving them to the opt folder"
-wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
+wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && sudo mv resolvers.txt /opt/wordlist
 sleep 2
+
+echo "Installing the dns wordlist from assetnote"
+wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlist
 
 echo "installing massdns"
 git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
