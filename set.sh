@@ -10,6 +10,11 @@ sleep 2
 
 echo "Installing the dns wordlist from assetnote"
 wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlist
+sleep 2
+
+echo "installing wordlist for subdomain permutation bruteforcing"
+wget https://gist.githubusercontent.com/kljunowsky/4cced0ed33c638590676513a0473ad78/raw/6889b98a8a05d2e6a721f7a9939fcff5de493296/subdomains-permutation-words.txt
+sleep 2
 
 echo "installing massdns"
 git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
