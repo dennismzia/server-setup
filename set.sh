@@ -83,7 +83,7 @@ echo "Installing graphwoof file"
 git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt --break-system-packages && mv main.py graphwoof.py ;chmod +x graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/ctfr
 
 echo "installing graphqlcop"
-git clone https://github.com/dolevf/graphql-cop.git && cd cd graphql-cop/ && pip install -r requirements.txt && mv graphql-cop.py graphqlcop.py && chmod +x graphqlcop.py && sudo ln -s $(pwd)/graphqlcop.py /usr/local/bin/graphqlcop ; cd && ls -l /usr/local/bin/graphqlcop
+git clone https://github.com/dolevf/graphql-cop.git &&  cd graphql-cop/ && pip install -r requirements.txt && mv graphql-cop.py graphqlcop.py && chmod +x graphqlcop.py && sudo ln -s $(pwd)/graphqlcop.py /usr/local/bin/graphqlcop ; cd && ls -l /usr/local/bin/graphqlcop
 
 
 echo "installing Altdns permutation generator"
