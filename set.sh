@@ -75,6 +75,12 @@ go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 echo "installing unfurl"
 go install github.com/tomnomnom/unfurl@latest
 
+echo "installing graphqlmaker"
+go install github.com/xssdoctor/graphqlMaker@latest
+
+echo "instaling fff for fast fetching"
+go install github.com/tomnomnom/fff@latest
+
 echo "installing certificate enumeration tools"
 git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd ..  && ls -l /usr/local/bin/ctfr
 
@@ -88,7 +94,6 @@ git clone https://github.com/dolevf/graphql-cop.git &&  cd graphql-cop/ && pip i
 
 echo "installing Altdns permutation generator"
 pip3 install py-altdns==1.0.2 --break-system-packages
-
 
 
 # TODO: - install graphwoof : DONE
