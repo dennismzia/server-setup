@@ -81,6 +81,9 @@ go install github.com/xssdoctor/graphqlMaker@latest
 echo "instaling fff for fast fetching"
 go install github.com/tomnomnom/fff@latest
 
+echo "installing getJs fast fetching of js urls"
+go install github.com/003random/getJS/v2@latest
+
 echo "installing certificate enumeration tools"
 git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd ..  && ls -l /usr/local/bin/ctfr
 
@@ -91,6 +94,9 @@ git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 inst
 echo "installing graphqlcop"
 git clone https://github.com/dolevf/graphql-cop.git &&  cd graphql-cop/ && pip install -r requirements.txt && mv graphql-cop.py graphqlcop.py && chmod +x graphqlcop.py && sudo ln -s $(pwd)/graphqlcop.py /usr/local/bin/graphqlcop ; cd && ls -l /usr/local/bin/graphqlcop
 
+
+echo "installing waymore"
+pip install --upgrade waymore
 
 echo "installing Altdns permutation generator"
 pip3 install py-altdns==1.0.2 --break-system-packages
