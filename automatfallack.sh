@@ -1,5 +1,5 @@
 #!/bin/bash
 
 while IFS= read -r target; do
-    ./subdomains.sh "$target"
+    ./fallback.sh "$target"
 done < $1
