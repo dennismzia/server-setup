@@ -31,7 +31,7 @@ echo ""
 echo $DIR
 
 
-cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayback.txt | sort -u #|  httpx | anew live.txt 
+cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayback.txt | sort -u |  httpx | anew live.txt 
 
 echo "finished with live probing------------------"
 echo "grpahql search initiated"
