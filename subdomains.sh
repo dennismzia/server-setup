@@ -46,7 +46,7 @@ echo "Live subs checking and graphql Search initiated"
 
 # cat $DIR/*.txt | sort -u | httpx | anew live.txt && for i in $(cat live.txt); do echo [$i];graphwoof -d -t $i ; done >> grap2.txt
 
-cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayback.txt | sort -u |  httpx | anew live.txt 
+cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayback.txt | sort -u |  httpx | anew $DIR/live.txt 
 
 echo "finished with live probing------------------"
 echo "grpahql search initiated"

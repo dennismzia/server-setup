@@ -36,7 +36,7 @@ cat $DIR/amas.txt $DIR/ctfr.txt $DIR/subdomains.txt $DIR/wayback2.txt $DIR/wayba
 echo "finished with live probing------------------"
 echo "grpahql search initiated"
 
-for i in $(cat live.txt); do echo [$i];graphwoof -d -t $i ; done >> grap2.txt
+for i in $(cat $DIR/live.txt); do echo [$i];graphwoof -d -t $i ; done >> $DIR/grap2.txt
 
 
 
