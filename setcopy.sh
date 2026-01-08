@@ -4,6 +4,7 @@ sleep 2
 sudo apt install -y wget git curl apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
 sleep 2
 
+sudo mkdir -p /opt/wordlists
 # echo "installing dns resolvers and moving them to the opt folder"
 # wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && mv resolvers.txt /opt/
 # sleep 2
@@ -68,11 +69,12 @@ go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 echo "installing unfurl"
 go install github.com/tomnomnom/unfurl@latest
 
-echo "installing certificate enumeration tools"
-git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt  && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd .. && ls -l /usr/local/bin/ctfr
+# install this manually as well
+# echo "installing certificate enumeration tools"
+# git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt  && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd .. && ls -l /usr/local/bin/ctfr
 
-echo "Installing graphwoof file"
-git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt  && mv main.py graphwoof.py ;chmod +x graphwoof.py ; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/graphwoof
+# echo "Installing graphwoof file"
+# git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt  && mv main.py graphwoof.py ;chmod +x graphwoof.py ; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/graphwoof
 
 
 echo "installing Altdns permutation generator"
@@ -85,8 +87,8 @@ pip3 install py-altdns==1.0.2 #
 #       - shortscan url tool
 #       - install clairvoyance
 
-# echo "installing katana -----------------------------------------"
-# go install github.com/projectdiscovery/katana/cmd/katana@latest
+echo "installing katana -----------------------------------------"
+go install github.com/projectdiscovery/katana/cmd/katana@latest
 
 # echo "installing"
 # go install github.com/gwen001/github-subdomains@latest
