@@ -4,12 +4,14 @@ sleep 2
 sudo apt install -y wget git curl apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
 sleep 2
 
+sudo mkdir -p /opt/wordlists
+
 echo "installing dns resolvers and moving them to the opt folder"
-wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && sudo mv resolvers.txt /opt/wordlist
+wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && sudo mv resolvers.txt /opt/wordlists
 sleep 2
 
 echo "Installing the dns wordlist from assetnote"
-wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlist
+wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlists
 sleep 2
 
 echo "installing wordlist for subdomain permutation bruteforcing"
