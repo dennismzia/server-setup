@@ -8,7 +8,9 @@ fi
 # files from chaos project already contain subdomains so its just live domain checks and graphql bruteforcing
 
 DOMAIN=$1
-DIR=$HOME/Documents/engagements/$1
+# DIR=$HOME/Documents/engagements/$1
+DIR=$HOME/engagements/$1
+
 mkdir -p "$DIR"
 
 echo "live domain search started on  $DOMAIN Relax and chill will probably take a while "
