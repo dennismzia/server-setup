@@ -1,5 +1,5 @@
 # installing all bounty tools on a server
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 sleep 2
 sudo apt install -y wget git curl apache2 net-tools make build-essential python3-pip whois jq libpcap-dev
 sleep 2
@@ -8,9 +8,9 @@ echo "installing dns resolvers and moving them to the opt folder"
 wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt && sudo mv resolvers.txt /opt/wordlist
 sleep 2
 
-echo "Installing the dns wordlist from assetnote"
-wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlist
-sleep 2
+# echo "Installing the dns wordlist from assetnote"
+# wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt && sudo mv best-dns-wordlist.txt /opt/wordlist
+# sleep 2
 
 echo "installing wordlist for subdomain permutation bruteforcing"
 wget https://gist.githubusercontent.com/kljunowsky/4cced0ed33c638590676513a0473ad78/raw/6889b98a8a05d2e6a721f7a9939fcff5de493296/subdomains-permutation-words.txt
@@ -20,9 +20,9 @@ echo "installing massdns"
 git clone https://github.com/blechschmidt/massdns.git && cd massdns && make && sudo make install && cd
 sleep 2
 
-# installing go 
-curl -OL https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
-sleep 2
+# # installing go 
+# curl -OL https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+# sleep 2
 
 
 echo "installing subfinder"
@@ -81,22 +81,21 @@ echo "installing getJs fast fetching of js urls"
 go install github.com/003random/getJS/v2@latest
 
 echo "installing certificate enumeration tools"
-git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt --break-system-packages && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd ..  && ls -l /usr/local/bin/ctfr
+git clone https://github.com/UnaPibaGeek/ctfr.git && cd ctfr/ && pip3 install -r requirements.txt  && sudo chmod +x ctfr.py ; sudo ln -s $(pwd)/ctfr.py /usr/local/bin/ctfr ; cd ..  && ls -l /usr/local/bin/ctfr
 
 
 echo "Installing graphwoof file"
-git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt --break-system-packages && mv main.py graphwoof.py ;chmod +x graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/ctfr
+git clone https://github.com/dolevf/graphw00f.git && cd graphw00f/ &&  pip3 install -r requirements.txt && mv main.py graphwoof.py ;chmod +x graphwoof.py; sudo ln -s $(pwd)/graphwoof.py /usr/local/bin/graphwoof ; cd .. && ls -l /usr/local/bin/graphwoof
 
 echo "installing graphqlcop"
-git clone https://github.com/dolevf/graphql-cop.git &&  cd graphql-cop/ && pip install -r requirements.txt && mv graphql-cop.py graphqlcop.py && chmod +x graphqlcop.py && sudo ln -s $(pwd)/graphqlcop.py /usr/local/bin/graphqlcop ; cd && ls -l /usr/local/bin/graphqlcop
+git clone https://github.com/dolevf/graphql-cop.git &&  cd graphql-cop/ && pip install -r requirements.txt && mv graphql-cop.py graphqlcop.py && chmod +x graphqlcop.py && sudo ln -s $(pwd)/graphqlcop.py /usr/local/bin/graphqlcop ; cd .. && ls -l /usr/local/bin/graphqlcop
 
 
 echo "installing waymore"
 pip install --upgrade waymore
 
 echo "installing Altdns permutation generator"
-pip3 install py-altdns==1.0.2 --break-system-packages
-
+pip3 install py-altdns==1.0.2 
 
 # TODO: - install graphwoof : DONE
 #       - install graphqlcop : DONE

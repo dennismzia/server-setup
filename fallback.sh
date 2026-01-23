@@ -6,7 +6,7 @@ if [[ -z "$1" ]]; then
 fi
 
 DOMAIN=$1
-DIR=$HOME/engagements/$1
+DIR=$HOME/Documents/engagements/$1
 mkdir -p "$DIR"
 
 # DIR=~/engagements/$1

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 DOMAIN=$1
-DIR=$HOME/engagements/$1
+DIR=$HOME/Documents/engagements/$1
 
 if [  ! -d "$DIR" ]; then
     mkdir -p $DIR
